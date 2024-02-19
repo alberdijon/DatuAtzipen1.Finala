@@ -1,4 +1,4 @@
-#METEORITES REST API
+# METEORITES REST API
 
 This project has been developed for the Data Access subject of the second course of Development of Multiplatform Applications in Uni Eibar. The main task is to develop a Rest Api that accesses a MongoDB database and to learn how a Rest Api can fit in a web application. In this case a JSON dataset was selected and loaded in a MongoDB database. That dataset collects all the meteorites that have fallen to earth in the last 200 years. These are the general use steps to take into account:
 ●	Swagger access: [http://localhost:8081/swagger-ui/index.html](URL)
@@ -7,27 +7,27 @@ This project has been developed for the Data Access subject of the second course
 ●	Collection name: fallen
 ●	Maven execution command (same directory as pom.xml): mvn spring-boot:run
 
-##DATASET
+## DATASET
 The dataset has a particular structure, each meteorite is a JSONObject but at the same time these meteorites have their own attributes; nine Strings and an JSONObject that inside has an array. The main idea was to deal with a certain level of depth in our datasets avoiding picking plain datasets. The dataset selected for the project was picked from a collection of datasets located in GitHub.
 This is the link: [https://github.com/jdorfman/awesome-json-datasets?tab=readme-ov-file](URL)
 As mentioned before the dataset was originally taken as a JSON document. Before the dataset was imported to a MongoDB database it suffered a small change. The attribute called id was changed to idn because it can be confused by mongo as the object id. To avoid problems we changed that.
 Before starting making the import is compulsory to create a new connection to our MongoDB server. In this case we configured a connection to the localhost using this connection string: mongodb://localhost.
 
-##REST SERVICE
+## REST SERVICE
 The Rest service has a particular structure. Using this service the user can make different types of requests, those types are the same that a CRUD app makes; create(POST), read(GET), update(PUT) and delete(DELETE). Each endpoint manages a different type of request, that's why depending which one is going to be executed the service will do one type of operation or another. The request can be made using the Swagger user interface or another development environment as Insomnia, Postman etc. From Swagger you can access the different endpoints, see the model schemas and get the api doc in yaml format. This is an overview:
  
-<img src= docu/captura_swqagger.png style="width: 30%"> 
+<img src= docu/captura_swqagger.PNG style="width: 100%"> 
 
-**GET** -> /meteorite/guztiak -> This returns a JSON with all the meteorites
-**GET** -> /meteorite/meteoritoid -> This return a JSON of the exact meteorite
-**GET** -> /meteorite/meteoritoizena -> This return a JSON of the exact meteorite
-**POST** -> /meteorite/metberria -> Meteoritoa era egokian gehitu da
-**PUT** -> /meteorite/meteoritoaeguneratu -> Response headers and response (ResponseEntity HttpRequestCode)
-**DELETE** -> /meteorite/metezabatu -> Meteoritoa era egokian ezabatu da
+** GET ** -> /meteorite/guztiak -> This returns a JSON with all the meteorites
+** GET ** -> /meteorite/meteoritoid -> This return a JSON of the exact meteorite
+** GET ** -> /meteorite/meteoritoizena -> This return a JSON of the exact meteorite
+** POST ** -> /meteorite/metberria -> Meteoritoa era egokian gehitu da
+** PUT ** -> /meteorite/meteoritoaeguneratu -> Response headers and response (ResponseEntity HttpRequestCode)
+** DELETE ** -> /meteorite/metezabatu -> Meteoritoa era egokian ezabatu da
 
-**IMPORTANTE: ESTOS ENDPOINT METELOS DENTRO DE UNA TABLA DE MARKDOWN, ES FACIL HACER**
+** IMPORTANTE: ESTOS ENDPOINT METELOS DENTRO DE UNA TABLA DE MARKDOWN, ES FACIL HACER **
 
-##MONGODB
+## MONGODB
 This SpringBoot application is a service that creates requests for a MongoDB database. For creating the database it is neccesary to install the Community edition of MongoDB and MongoDB Compass, which is a MongoDB client. Once installed we open the client and we create a connection to our local machine. Here you can create remote connections to servers, to the local machine and even to the MongoDB cluster or the Cloud.
 Editing and adjusting that connection string will give you the possibility to be able to connect where you need. In this case the application is configured to connect to the local machine via Localhost. Entering mongodb://localhost you can connect and proceed to create the database.
 In the left side you can see the databases, there you create the database and the collection where the data is going to be kept. The name of the database is called meteorites and the collection is called fallen. Once the database and the collection are created we import our dataset. The dataset is a JSON document, just importing the document mongo will create a large amount of documents. Each document is a meteorite and each meteorite has its own attributes:
@@ -49,7 +49,7 @@ In the left side you can see the databases, there you create the database and th
     ]
   }
 
-##JAVA PROJECT
+## JAVA PROJECT
 
 The Java Project has been developed creating a SpringBoot project. We are also using a Maven type of project because we can comfortably add dependencies and include them in our project. This is made using the pom.xml document inside the project. Inside the pom we can find the build in, plugins and dependencies of our project. Is a effective and comfortable way to add different types of resources to our project.
 The SpringBoot type of projects have a particular structure of classes and models. The project is divided in two main packages; model and controller. Outside those packages we have two classes more. The first class is the SpringConfiguration. With this class the application can get the connection string from the application properties and get the MongoDB client creating at the same time the conversion from BSONDocument to JavaObject. And the second class is the Application main class. With this class the application gets started and runs the whole service.
@@ -60,11 +60,11 @@ Finally, inside the controller package we have a single class. This class is the
  
 
 
-<img src= docu/MeteoritesDiagram.png style="width: 30%"> 
+<img src= docu/MeteoritesDiagram.png style="width: 100%"> 
 
 
 
-##CONVERSOR
+## CONVERSOR
 
 This program is a conversor and importation and exportation program. Is able to make different types of operations based on documents that we are going to add in the data directory. The program has been developing using Java building a maven type project. Inside the model directory we have three object models, one for the Geolocation that is an attribute of the main Meteorite class, another for the Meteorites class that is a list of the main Meteorite class and finally the Meteorite class keeping the attributes of the main class. All the models have been annotated with JAXB annotation to be able to convert to XML.
 
