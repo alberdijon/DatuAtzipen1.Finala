@@ -16,7 +16,7 @@ Before starting making the import is compulsory to create a new connection to ou
 ## REST SERVICE
 The Rest service has a particular structure. Using this service the user can make different types of requests, those types are the same that a CRUD app makes; create(POST), read(GET), update(PUT) and delete(DELETE). Each endpoint manages a different type of request, that's why depending which one is going to be executed the service will do one type of operation or another. The request can be made using the Swagger user interface or another development environment as Insomnia, Postman etc. From Swagger you can access the different endpoints, see the model schemas and get the api doc in yaml format. This is an overview:  
  
-<img src= docu/captura_swqagger.PNG style="width: 100%"> 
+<img src= docu/captura_swagger.PNG style="width: 100%"> 
 
 ** GET ** -> /meteorite/guztiak -> This returns a JSON with all the meteorites  
 ** GET ** -> /meteorite/meteoritoid -> This return a JSON of the exact meteorite  
