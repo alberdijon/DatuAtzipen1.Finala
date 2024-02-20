@@ -25,8 +25,6 @@ The Rest service has a particular structure. Using this service the user can mak
 ** PUT ** -> /meteorite/meteoritoaeguneratu -> Response headers and response (ResponseEntity HttpRequestCode)  
 ** DELETE ** -> /meteorite/metezabatu -> Meteoritoa era egokian ezabatu da  
 
-** IMPORTANTE: ESTOS ENDPOINT METELOS DENTRO DE UNA TABLA DE MARKDOWN, ES FACIL HACER **  
-
 ## MONGODB
 This SpringBoot application is a service that creates requests for a MongoDB database. For creating the database it is neccesary to install the Community edition of MongoDB and MongoDB Compass, which is a MongoDB client. Once installed we open the client and we create a connection to our local machine. Here you can create remote connections to servers, to the local machine and even to the MongoDB cluster or the Cloud.  
 Editing and adjusting that connection string will give you the possibility to be able to connect where you need. In this case the application is configured to connect to the local machine via Localhost. Entering mongodb://localhost you can connect and proceed to create the database.  
